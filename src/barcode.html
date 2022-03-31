@@ -12,14 +12,14 @@ Barcode Scanner Prototype
 <h2>Results go here</h2>
 <input type="text" id="returnedtext" length="10"/>
 <select name="participants" id="participants" multiple="true">
-  <option>Mark</option>
-  <option>Joanne</option>
-  </select>
-  
+  </select>  
   <script>
 function onScanSuccess(decodedText,decodedResult)
 {
-returnedtext.value=decodedText
+returnedtext.value=decodedText;
+  var newParticipant=document.createElement('OPTION');
+newParticipant.text=decodedText;
+document.getElementById('participants').add(newParticipant);
 }
 var html5QrcodeScanner=new Html5QrcodeScanner("qr-reader",{fps:10,qrbox:500});
 html5QrcodeScanner.render(onScanSuccess);
