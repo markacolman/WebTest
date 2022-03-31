@@ -12,30 +12,25 @@ Barcode Scanner Prototype
   <p>Latest scan:
   <input type="text" width="10" id="latest"/>
   </p>
-  <h2>Participants</h2>
+  <h2>All Participants</h2>
   <select id="participants" multiple="true">
   </select>
   <script>
 function onScanSuccess(decodedText,decodedResult)
 {
+  var lastScan = document.getElementById("latest").value;
+  if (lastScan != decodedText)
+  {
+    recordParticipant(decodedText);
   document.getElementById('latest').value=decodedText;
-html5QrcodeScanner.clear();
-  html5QrcodeScanner.render(onScanSuccess);
+  }
 }
     function recordParticipant(identifier)
     {
   var participants = document.getElementById('participants');
-  var found = false;
-  participants.options.forEach(function(participant)
-  {
-    if (participant.text == identifier) found = true;
-  })
-  if (!found)
-  {
   var newParticipant=document.createElement('OPTION');
 newParticipant.text=identifier;
 participants.add(newParticipant);
-    }
     }
 var html5QrcodeScanner=new Html5QrcodeScanner("qr-reader",{fps:10,qrbox:500});
 html5QrcodeScanner.render(onScanSuccess);
