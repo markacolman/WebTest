@@ -17,7 +17,7 @@ function onScanSuccess(decodedText,decodedResult)
 {
 returnedtext.value=decodedText
 }
-var html5QrcodeScanner=new Html5QrcodeScanner("qr-reader",{fps:10,qrbox:750});
+var html5QrcodeScanner=new Html5QrcodeScanner("qr-reader",{fps:10,qrbox:600});
 html5QrcodeScanner.render(onScanSuccess);
 </script>
 </body>
