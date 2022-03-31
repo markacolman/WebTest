@@ -17,10 +17,10 @@ function onScanSuccess(decodedText,decodedResult)
 {
   var participants = document.getElementById('participants');
   var found = false;
-  foreach (participant in participants.options)
+  participants.options.forEach(function(participant)
   {
     if (participant.text == decodedText) found = true;
-  }
+  })
   if (!found)
   {
   var newParticipant=document.createElement('OPTION');
