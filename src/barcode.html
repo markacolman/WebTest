@@ -12,7 +12,7 @@ Barcode Scanner Prototype
   <p>Latest scan:
   <input type="text" width="10" id="latest"/>
   </p>
-  <h2>All Participants</h2>
+  <h2>Participants</h2>
   <select id="participants" multiple="true">
   </select>
   <script>
@@ -20,6 +20,7 @@ function onScanSuccess(decodedText,decodedResult)
 {
   document.getElementById('latest').value=decodedText;
 html5QrcodeScanner.clear();
+  html5QrcodeScanner.render(onScanSuccess);
 }
     function recordParticipant(identifier)
     {
