@@ -19,8 +19,6 @@ Barcode Scanner Prototype
 function onScanSuccess(decodedText,decodedResult)
 {
   document.getElementById('latest').value=decodedText;
-  html5QrcodeScanner.stop();
-  recordParticipant(decodedText);
 }
     function recordParticipant(identifier)
     {
