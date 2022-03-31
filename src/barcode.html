@@ -9,12 +9,17 @@ Barcode Scanner Prototype
 <h1>Barcode Scanner Prototype</h1>
 <h2>Scanner functionality appears here</h2>
 <div id="qr-reader" style="width: 600px"></div>
-<h2>Results go here</h2>
-<input type="text" width="10" id="latest"/>
+  <p>Latest scan:
+  <input type="text" width="10" id="latest"/>
+  </p>
+  <h2>All scans</h2>
+  <select id="participants" multiple="true">
+  </select>
   <script>
 function onScanSuccess(decodedText,decodedResult)
 {
   document.getElementById('latest').value=decodedText;
+  recordParticipant(decodedText);
 }
     function recordParticipant(identifier)
     {
@@ -27,7 +32,7 @@ function onScanSuccess(decodedText,decodedResult)
   if (!found)
   {
   var newParticipant=document.createElement('OPTION');
-newParticipant.text=ientifier;
+newParticipant.text=identifier;
 participants.add(newParticipant);
     }
     }
