@@ -10,11 +10,13 @@ Barcode Scanner Prototype
 <h2>Scanner functionality appears here</h2>
 <div id="qr-reader" style="width: 600px"></div>
 <h2>Results go here</h2>
-<select name="participants" id="participants" multiple="true">
+<input type="text" width="100" id="latest"/>
+  <select name="participants" id="participants" multiple="true">
   </select>  
   <script>
 function onScanSuccess(decodedText,decodedResult)
 {
+  latest.value=decodedText;
   var participants = document.getElementById('participants');
   var found = false;
   participants.options.forEach(function(participant)
