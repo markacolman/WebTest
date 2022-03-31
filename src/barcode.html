@@ -11,25 +11,29 @@ Barcode Scanner Prototype
 <div id="qr-reader" style="width: 600px"></div>
 <h2>Results go here</h2>
 <input type="text" width="100" id="latest"/>
+  <button text="Add" onClick="recordParticipant(latest.value)"/>
   <select name="participants" id="participants" multiple="true">
   </select>  
   <script>
 function onScanSuccess(decodedText,decodedResult)
 {
   latest.value=decodedText;
+}
+    function recordParticipant(identifier)
+    {
   var participants = document.getElementById('participants');
   var found = false;
   participants.options.forEach(function(participant)
   {
-    if (participant.text == decodedText) found = true;
+    if (participant.text == identifier) found = true;
   })
   if (!found)
   {
   var newParticipant=document.createElement('OPTION');
-newParticipant.text=decodedText;
+newParticipant.text=ientifier;
 participants.add(newParticipant);
     }
-}
+    }
 var html5QrcodeScanner=new Html5QrcodeScanner("qr-reader",{fps:10,qrbox:500});
 html5QrcodeScanner.render(onScanSuccess);
 </script>
