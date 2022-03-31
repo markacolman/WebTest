@@ -17,7 +17,7 @@ function onScanSuccess(decodedText,decodedResult)
 {
   var participants = document.getElementById('participants');
   var found = false;
-  foreach (var participant in participants.options)
+  foreach (participant in participants.options)
   {
     if (participant.text == decodedText) found = true;
   }
