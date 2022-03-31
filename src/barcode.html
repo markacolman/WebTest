@@ -11,10 +11,10 @@ Barcode Scanner Prototype
 <div id="qr-reader" style="width: 600px"></div>
 <h2>Results go here</h2>
 <input type="text" id="returnedtext" length="10"/>
-<ul role="listbox" id="participants">
-  <li>Mark</li>
-  <li>Joanne</li>
-  </ul>
+<select name="participants" id="participants" multiple="true">
+  <option>Mark</option>
+  <option>Joanne</option>
+  </select>
   
   <script>
 function onScanSuccess(decodedText,decodedResult)
